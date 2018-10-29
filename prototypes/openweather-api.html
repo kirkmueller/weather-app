@@ -1,0 +1,113 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Open Weather API Example</title>
+
+</head>
+
+<body>
+
+<button onclick="getWeather()">Get Weather</button>
+<button onclick="getForecast()">Get Forecast</button>
+
+<br/><br/>
+
+<label>Weather</label><br/>
+<pre id="console-weather"></pre>
+
+<br/><br/>
+
+<label>Forecast</label><br/>
+<pre id="console-forecast"></pre>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script>
+	
+	var API = "a22bb8377fc6741c6f0b960b58552abb";
+
+	function getWeather(){
+		var url = "https://api.openweathermap.org/data/2.5/weather?zip=11215,us&APPID=" + API;
+		$.ajax({
+			url,
+			context: document.body,
+			dataType: 'json',
+			success: function(data){
+				console.log("SUCCESS", data);
+			}
+		}).done(function(data) {
+			console.log("DONE", data);
+			$("#console-weather").text(JSON.stringify(data,null,2));
+		});
+		
+		/* 
+			
+		Data points for weather object:
+		weather.name = "New York"
+		weather.sys.country = "US"
+		weather.sys.sunrise
+		weather.sys.sunset
+		weather.clouds.all: NUMBER
+		weather.wind.speed
+		weather.wind.deg
+		weather.main.temp
+		weather.main.pressure
+		weather.main.humidity
+		weather.main.temp_min
+		weather.main.temp_max
+		weather.weather[0].id NUMBER
+		weather.weather[0].main "Clear"
+		weather.weather[0].description "clear sky"
+		weather.weather[0].icon 
+		weather.dt = time
+		
+			
+			
+		*/
+	}
+	
+	function getForecast(){
+		var url = "https://api.openweathermap.org/data/2.5/forecast?zip=11215,us&APPID=" + API;
+		$.ajax({
+			url,
+			context: document.body,
+			dataType: 'json',
+			success: function(data){
+				console.log("SUCCESS", data);
+			}
+		}).done(function(data) {
+			console.log("DONE", data);
+			$("#console-forecast").text(JSON.stringify(data,null,2));
+			
+			/* 
+			
+				Data points for FORECAST object:
+				
+				forecast.list[] as item
+				item.dt = date
+				item.main.temp_min		
+				item.main.temp_max
+				item.main.pressure
+				item.main.humidity
+				item.weather[].id
+				item.weather[].main "CLEAR"
+				item.weather[].description
+				item.weather[].icon
+				
+				item.clouds.all: NUM
+				item.wind.speed.
+				item.wind.deg
+				
+				
+				
+			*/
+		});
+	}
+	
+</script>
+
+</body>
+</html>

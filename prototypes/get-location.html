@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Get Location Example</title>
+  
+</head>
+
+<body>
+
+<h2>Get Location</h2>
+<p id="location-auto"></p>
+
+<button onclick="getLocation()">Get Location</button>
+
+<script>
+	
+	function getLocation(){
+		if (navigator.geolocation) {
+	        navigator.geolocation.getCurrentPosition(function(position){
+	        	document.getElementById('location-auto').innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude; 
+	        }, function(err){
+				console.warn(`ERROR(${err.code}): ${err.message}`);
+		        alert("Could not get location.")
+	        });
+	    } else {
+	        alert("Geolocation is not supported by this browser.");
+	    }
+	}
+	
+</script>
+      
+</body>
+</html>
