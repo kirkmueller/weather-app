@@ -66,10 +66,12 @@ This is where I got to explore the templating in ES6 and converting the data ret
 I like researching the landscape and see what kinds of ways other people have resolved displaying the weather. I created a Pinterest board of some pins that inspired me. I've 
 
 **Loading Screens**
+
 <img src="https://raw.githubusercontent.com/kirkmueller/weather-app/master/design/Mockups.png" width="50%">
 <img src="https://raw.githubusercontent.com/kirkmueller/weather-app/master/design/Mockups2.png" width="50%">
 
 **Potential Designs**
+
 <img src="https://raw.githubusercontent.com/kirkmueller/weather-app/master/design/Mockups3.png" width="50%">
 <img src="https://raw.githubusercontent.com/kirkmueller/weather-app/master/design/Mockups4.png" width="50%">
 <img src="https://raw.githubusercontent.com/kirkmueller/weather-app/master/design/Mockups5.png" width="50%">
